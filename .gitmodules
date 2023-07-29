@@ -1,0 +1,6 @@
+[submodule "modules/internal_api/libhttpserver"]
+	path = modules/internal_api/libhttpserver
+	url = https://github.com/etr/libhttpserver.git
+[submodule "modules/global/json"]
+	path = modules/global/json
+	url = https://github.com/nlohmann/json.git

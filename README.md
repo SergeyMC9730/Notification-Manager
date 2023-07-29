@@ -1,3 +1,3 @@
-# notification api
+# Notification API
 
-i'm doing notification api give stars thanks
+This Repository is currently in Development and not recommended to use in any case!

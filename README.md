@@ -1,3 +1,3 @@
-# Notification API
+# Notification Manager
 
 This Repository is currently in Development and not recommended to use in any case!

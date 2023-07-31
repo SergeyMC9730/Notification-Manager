@@ -19,6 +19,8 @@ public:
         _config = config;
     }
 
+    std::vector<Module *> _loadedModules;
+
     std::string _name = "";
 
     ModuleType _type = ModMixed;

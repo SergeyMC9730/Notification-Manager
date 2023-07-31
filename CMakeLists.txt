@@ -4,6 +4,7 @@ set(LIBS)
 
 # MODULES
 set(ENABLE_MODULE_INTERNALAPI 1)
+set(ENABLE_MODULE_TELEGRAM 1)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
@@ -18,6 +19,14 @@ if (ENABLE_MODULE_INTERNALAPI)
     set(LIBS ${LIBS} internalapi)
     include_directories(modules/internal_api/include)
     include_directories(modules/internal_api/libhttpserver/src)
+endif()
+
+if (ENABLE_MODULE_TELEGRAM)
+    add_compile_definitions(_MODULE_TELEGRAM_)
+    add_subdirectory(modules/telegram)
+    set(LIBS ${LIBS} telegram-mod)
+    include_directories(modules/telegram/include)
+    include_directories(modules/telegram/tgbot-cpp/include)
 endif()
 
 include_directories(include)

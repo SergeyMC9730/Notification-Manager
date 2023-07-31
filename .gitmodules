@@ -4,3 +4,6 @@
 [submodule "modules/global/json"]
 	path = modules/global/json
 	url = https://github.com/nlohmann/json.git
+[submodule "modules/telegram/tgbot-cpp"]
+	path = modules/telegram/tgbot-cpp
+	url = https://github.com/reo7sp/tgbot-cpp

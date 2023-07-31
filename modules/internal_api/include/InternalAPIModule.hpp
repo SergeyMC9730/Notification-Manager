@@ -10,7 +10,6 @@ class InternalAPIModule : public Module {
 public:
     InternalAPIModule(nlohmann::json config);
 
-    std::vector<Module *> _loadedModules;
     std::vector<APIRequest *> _loadedRequests;
 
     InternalAPIModule();

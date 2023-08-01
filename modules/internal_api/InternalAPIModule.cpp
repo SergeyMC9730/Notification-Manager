@@ -11,8 +11,10 @@ InternalAPIModule::InternalAPIModule(nlohmann::json config) : Module(config) {
 void InternalAPIModule::init() {
     _loadedRequests.push_back(new InternalAPI::v1::SendRequest());
 
+    _loadedRequests[0]->request_url = _config["url"].get<std::string>().c_str();
+
     webserver ws = create_webserver()
-        .port(8080)
+        .port(_config["port"].get<int>())
         .max_threads(4)
         .memory_limit(256 * 1024)
         .debug()

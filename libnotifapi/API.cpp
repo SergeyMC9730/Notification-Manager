@@ -67,7 +67,7 @@ bool API::_verifyConfigIntegrity(nlohmann::json config, bool throw_error) {
             return false;
         }
 
-        if (!config["source_conifg"].contains(module.get<std::string>())) {
+        if (!config["source_config"].contains(module.get<std::string>())) {
             if (throw_error) throw std::runtime_error("module " + module.get<std::string>() + " doesn't have a configuration attached");
 
             return false;
@@ -81,7 +81,7 @@ bool API::_verifyConfigIntegrity(nlohmann::json config, bool throw_error) {
             return false;
         }
 
-        if (!config["destination_conifg"].contains(module.get<std::string>())) {
+        if (!config["destination_config"].contains(module.get<std::string>())) {
             if (throw_error) throw std::runtime_error("module " + module.get<std::string>() + " doesn't have a configuration attached");
 
             return false;
@@ -113,16 +113,16 @@ void API::init() {
     // std::filesystem::
 
     #ifdef _MODULE_INTERNALAPI_
-    if (j["modules"]["destination"].contains("internal_api")) {
-        _modules.push_back(new InternalAPIModule(j["modules"]["destination"]["internal_api"]));
+    if (j["destination_config"].contains("internal_api")) {
+        _modules.push_back(new InternalAPIModule(j["destination_config"]["telegram"]));
     } else {
         std::cout << "module internal_api doesn't exist in the config so it is not going to be loaded" << std::endl;
     }
     #endif
 
     #ifdef _MODULE_TELEGRAM_
-    if (j["modules"]["destination"].contains("telegram")) {
-        _modules.push_back(new TelegramModule(j["modules"]["destination"]["telegram"]));
+    if (j["destination_config"].contains("telegram")) {
+        _modules.push_back(new TelegramModule(j["destination_config"]["telegram"]));
     } else {
         std::cout << "module telegram doesn't exist in the config so it is not going to be loaded" << std::endl;
     }

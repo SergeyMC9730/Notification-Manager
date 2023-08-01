@@ -14,6 +14,10 @@ enum ModuleType {
 class Module {
 protected:
     nlohmann::json _config;
+
+    virtual nlohmann::json _loadDefaultConfig() {
+        return nlohmann::json::object();
+    }
 public:
     Module(nlohmann::json config) {
         _config = config;
